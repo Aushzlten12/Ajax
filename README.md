@@ -104,5 +104,18 @@ Le agregé algunas nuevas filas con descripción para ver mejor la ventana emerg
 
 ![AJAX](resultado1.png)
 
+*Mi explicacion sobre los datos de la ventana emergente*, ya que cuando `MoviePopup` usa showMovieInfo no se ingresa ningun parametro como `data`. Eso es porque, en el controlador de movies, en la acción `show` se escribió una condicional `render(:partial => 'movie', :object => @movie) if request.xhr?`. Con este código javascript, al hacer un click realiza una petición AJAX por lo que solo se renderiza la vista parcial, y esto es la data que necesita el método `showMovieInfo`. Por lo que `closeLink` ya está implementada en la vista parcial `_movie.html.erb`.
+
 ## Parte 3
 
+Si el elemento se crea dinamicamente con una clase `myClass` al tener en el código javascript `$(.myClass).on(click,func)` este nuevo elemento no contara con esta respuesta al evento click. Para solucionar esto se usa *la delegación de eventos*. Se selecciona una etiqueta padre, o todo el documento, por ejemplo : 
+
+```javascript
+$(document).on('click', '.myClass', function());
+```
+
+Aunque si se tuviera una lista y por cada item necesito delegar eventos.
+
+```javascript
+$('#lista').on('click', 'li', function());
+```
