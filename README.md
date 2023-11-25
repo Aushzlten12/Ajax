@@ -119,3 +119,10 @@ Aunque si se tuviera una lista y por cada item necesito delegar eventos.
 ```javascript
 $('#lista').on('click', 'li', function());
 ```
+
+En el archivo `movie_popup` se uso la delegacion de eventos :
+
+```javascript
+$(document).on('click', '#movies a', MoviePopup.getMovieInfo);
+```
+para cada enlace dentro del documento, se le asigno en el evento click, con la función `getMovieInfo`. 
